@@ -50,8 +50,8 @@ function plottruss(nodes, edges, supports, loads,forces)
                 x = [P(i,1) - sign(round(forces(forceplot),2)+1e-12)*maxload, P(i,1)];
                 y = [P(i,2) - sign(round(forces(forceplot+1),2)+1e-12)*maxload, P(i,2)];
                 
-                arrow([x(1), y(2)], [x(2), y(2)]);
-                arrow([x(2), y(1)], [x(2), y(2)]);
+                arrow([x(1), y(2)], [x(2), y(2)],'EdgeColor','blue','FaceColor','blue');
+                arrow([x(2), y(1)], [x(2), y(2)],'EdgeColor','blue','FaceColor','blue');
                 
                 text(x(1), y(2), string(round(abs(forces(forceplot)),2)));
                 text(x(2), y(1), string(round(abs(forces(forceplot+1)),2)));
@@ -64,7 +64,7 @@ function plottruss(nodes, edges, supports, loads,forces)
             else
                 x = [P(i,1), P(i,1)];
                 y = [P(i,2) - sign(round(forces(forceplot),2))*maxload, P(i,2)];
-                arrow([x(2), y(1)], [x(2), y(2)]);
+                arrow([x(2), y(1)], [x(2), y(2)],'EdgeColor','blue','FaceColor','blue');
                 text(x(2), y(1), string(round(abs(forces(forceplot)),2)));
                 forceplot=forceplot+1;
             end
@@ -76,7 +76,7 @@ function plottruss(nodes, edges, supports, loads,forces)
             else
                 x = [P(i,1), P(i,1)];
                 y = [P(i,2) - sign(round(forces(forceplot),2))*maxload, P(i,2)];
-                arrow([x(2), y(1)], [x(2), y(2)]);
+                arrow([x(2), y(1)], [x(2), y(2)],'EdgeColor','blue','FaceColor','blue');
                 text(x(2), y(1), string(round(abs(forces(forceplot)),2)));
                 forceplot=forceplot+1;
             end
@@ -89,7 +89,7 @@ function plottruss(nodes, edges, supports, loads,forces)
             y = [P(i,2) - sign(L(i,2))*maxload, P(i,2)];
             
             % Draw the force arrow
-            arrow([x(1), y(2)], [x(2), y(2)]);
+            arrow([x(1), y(2)], [x(2), y(2)],'EdgeColor','red','FaceColor','red');
             
             % Annotate the force arrow with the magnitude of the force
             text(x(1), y(2), string(abs(L(i,1))));
@@ -101,7 +101,7 @@ function plottruss(nodes, edges, supports, loads,forces)
             y = [P(i,2) - sign(L(i,2))*maxload, P(i,2)];
             
             % Draw the force arrow
-            arrow([x(2), y(1)], [x(2), y(2)]);
+            arrow([x(2), y(1)], [x(2), y(2)],'EdgeColor','red','FaceColor','red');
             
             % Annotate the force arrow with the magnitude of the force
             text(x(2), y(1), string(abs(L(i,2))));
